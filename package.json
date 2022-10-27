@@ -1,0 +1,37 @@
+{
+  "name": "vanilla-js-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "ts": "tsc",
+    "ts:dev": "tsc -w",
+    "start": "node .",
+    "start:dev": "nodemon -q",
+    "lint": "npx eslint src/*"
+  },
+    "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "keywords": [],
+  "author": "xifre",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
+    "jest-ts-webcompat-resolver": "^1.0.0",
+    "sass": "^1.54.0",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  }
+}
