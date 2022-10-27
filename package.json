@@ -6,11 +6,12 @@
   "scripts": {
     "ts": "tsc",
     "ts:dev": "tsc -w",
-    "start": "node .",
-    "start:dev": "nodemon -q",
-    "lint": "npx eslint src/*"
+    "start": "serve public",
+    "lint": "npx eslint src/*",
+    "sass": "sass src/styles/index.scss public/css/index.css",
+    "sass:dev": "sass src/styles/index.scss public/css/index.css --watch"
   },
-    "parserOptions": {
+  "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
