@@ -1,15 +1,19 @@
-import FancyElement from "../../lib/FancyElement.js";
-import newCustomElement from "../../utils/newCustomElement.js";
+import appStyle from "./App.style.js";
+import Component from "../wrappers/Component.js";
 
-export const AppTag = "app-container";
+export const AppTag = "vanilla-app";
 
-class App extends FancyElement {
+class App extends Component {
   constructor() {
-    super("CHILDREN_TOP");
-    this.className = "app";
+    super();
+
+    this.render();
+  }
+
+  render(): void {
+    this.setChildren();
+    this.renderTemplate("app", appStyle);
   }
 }
-
-newCustomElement(AppTag, App);
 
 export default App;
