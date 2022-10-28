@@ -11,7 +11,7 @@ const { app, button } = components;
 root.innerHTML = `
   <${app.tag}>
       <${button.tag}>
-        adsfasdfasdf
+        Hello
       </${button.tag}>
   </${app.tag}>
 `;
