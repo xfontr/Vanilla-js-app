@@ -1,4 +1,4 @@
-import components from "../components.js";
+import { components } from "../components.js";
 import { ComponentName } from "../../types/components.js";
 
 class ComponentLayout extends HTMLElement {
