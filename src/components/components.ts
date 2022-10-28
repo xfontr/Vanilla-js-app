@@ -1,24 +1,13 @@
-import { ComponentName, Components } from "../types/components.js";
+import { Components } from "../types/components.js";
+import defineComponents from "../utils/defineComponents/defineComponents.js";
 import App from "./App/App.js";
 import Button from "./Button/Button.js";
 
-const tagPrefix = "van-";
-const allComponents = [App, Button];
+export const allComponents = [App, Button];
 
-const components: Components = {
+export const basicComponents: Components = {
   app: {},
   button: {},
 };
 
-allComponents.forEach((Component: CustomElementConstructor) => {
-  const componentName = Component.name.toLowerCase() as ComponentName;
-
-  components[componentName] = {
-    ...components[componentName],
-    class: componentName,
-    tag: `${tagPrefix}${componentName}`,
-    Component,
-  };
-});
-
-export default components;
+export const components = defineComponents(allComponents, basicComponents);
