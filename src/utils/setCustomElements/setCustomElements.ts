@@ -1,5 +1,5 @@
-import Tag from "../types/Tag.js";
-import { Components } from "../types/components";
+import Tag from "../../types/Tag.js";
+import { Components } from "../../types/components";
 
 const newCustomElement = (
   tag: Tag,
@@ -10,7 +10,7 @@ const newCustomElement = (
   customElements.define(tag.toLowerCase(), Component);
 };
 
-const setCustomElements = (components: Components) => {
+const setCustomElements = (components: Components): void => {
   Object.values(components).forEach(({ tag, Component }) =>
     newCustomElement(tag, Component)
   );
