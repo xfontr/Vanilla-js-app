@@ -1,5 +1,5 @@
-import tagPrefix from "../../config/tagPrefix";
-import { ComponentName, Components } from "../../types/components";
+import tagPrefix from "../../config/tagPrefix.js";
+import { ComponentName, Components } from "../../types/components.js";
 
 const defineComponents = (
   allComponents: CustomElementConstructor[],
