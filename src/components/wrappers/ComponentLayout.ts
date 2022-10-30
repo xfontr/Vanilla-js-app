@@ -1,6 +1,12 @@
 import { components } from "../components.js";
 import { ComponentName } from "../../types/components.js";
 
+const sealed = (constructor: Function): void => {
+  Object.seal(constructor);
+  Object.seal(constructor.prototype);
+};
+
+@sealed
 class ComponentLayout extends HTMLElement {
   protected template: HTMLTemplateElement;
   protected stylesheet: HTMLStyleElement;
@@ -34,10 +40,10 @@ class ComponentLayout extends HTMLElement {
     return this.wrapper.appendChild(slot);
   }
 
-  protected renderTemplate(name: ComponentName, style: string) {
+  protected renderTemplate(name: ComponentName | "", style: string) {
     this.stylesheet.textContent = style || "";
 
-    this.setDefaultClass(name);
+    if (name !== "") this.setDefaultClass(name);
     this.appendTemplate();
   }
 

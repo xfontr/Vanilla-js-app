@@ -6,12 +6,16 @@ const root = $("#root");
 
 setCustomElements(components);
 
-const { app, button } = components;
+const { app, button, newslist, newscontextprovider, authors } = components;
 
 root.innerHTML = `
   <${app.tag}>
       <${button.tag}>
         Hello
       </${button.tag}>
+      <${newscontextprovider.tag}>
+        <${newslist.tag}></${newslist.tag}>
+        <${authors.tag}></${authors.tag}>
+      </${newscontextprovider.tag}>
   </${app.tag}>
 `;

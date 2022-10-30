@@ -1,7 +1,7 @@
 import Tag from "../../types/Tag.js";
 import { Components } from "../../types/components";
 
-const newCustomElement = (
+export const newCustomElement = (
   tag: Tag,
   Component: CustomElementConstructor
 ): void => {
