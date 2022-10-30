@@ -1,15 +1,15 @@
 import ContextProvider from "../../../components/wrappers/ContextProvider.js";
-import INews from "../types/News.js";
+import { newsList } from "../mocks/news.js";
 
 const newsContextInitialState = {
-  news: [] as INews[],
+  news: newsList,
 };
 
 class NewsContextProvider extends ContextProvider<
   typeof newsContextInitialState
 > {
-  constructor() {
-    super(newsContextInitialState);
+  constructor(element?: string) {
+    super(newsContextInitialState, element);
   }
 }
 

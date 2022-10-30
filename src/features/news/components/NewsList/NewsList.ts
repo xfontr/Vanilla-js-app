@@ -1,5 +1,7 @@
 import News from "../News/News.js";
 import NewsContextProvider from "../../store/NewsContextProvider.js";
+import newsListStyle from "./NewsList.style.js";
+import createElement from "../../../../utils/elementHandlers.js";
 
 class NewsList extends NewsContextProvider {
   constructor() {
@@ -11,14 +13,30 @@ class NewsList extends NewsContextProvider {
   }
 
   private render() {
-    this.shadowRoot.innerHTML = "<van-button>Add news</van-button>";
+    const allNews = this.consumer().news;
 
-    this.consumer().news.forEach((currentNews) => {
-      const toAppend = new News(currentNews, currentNews.id);
-      this.shadowRoot.appendChild(toAppend);
+    if (!allNews.length) return;
+
+    this.shadowRoot.innerHTML = "";
+
+    const list = createElement({
+      element: "ul",
+      className: "news-list__list",
     });
 
-    this.renderTemplate("", "");
+    this.consumer().news.forEach((currentNews) => {
+      const listElement = createElement({
+        element: "li",
+      });
+
+      const toAppend = new News(currentNews);
+      listElement.appendChild(toAppend);
+      list.appendChild(listElement);
+    });
+
+    this.shadowRoot.appendChild(list);
+    this.setChildren();
+    this.renderTemplate("", newsListStyle);
   }
 
   connectedCallback(): void {

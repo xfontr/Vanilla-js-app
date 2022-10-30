@@ -47,7 +47,7 @@ class ComponentLayout extends HTMLElement {
     this.appendTemplate();
   }
 
-  protected appendTemplate(): void {
+  private appendTemplate(): void {
     const { template, wrapper, stylesheet, shadowRoot } = this;
 
     template.content.append(wrapper, stylesheet);
