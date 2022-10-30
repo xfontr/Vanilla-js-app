@@ -1,8 +1,8 @@
 const mainTheme = {
   breakpoints: {
-    small: "23.75rem",
-    medium: "50rem",
-    big: "75rem",
+    small: "380px",
+    medium: "800px",
+    big: "1150px",
   },
 
   colors: {
