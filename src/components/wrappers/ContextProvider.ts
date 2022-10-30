@@ -1,5 +1,6 @@
 import Component from "./Component.js";
 import Context from "../../types/Context.js";
+import { $ } from "../../utils/selector/selector.js";
 
 const store = new WeakMap<Context>();
 
@@ -7,8 +8,8 @@ class ContextProvider<T extends Context> extends Component {
   private context: T;
   private key: T;
 
-  constructor(initialValue: T) {
-    super();
+  constructor(initialValue: T, element?: string) {
+    super(element);
 
     this.key = initialValue;
     this.context = store.get(this.key);
@@ -27,6 +28,7 @@ class ContextProvider<T extends Context> extends Component {
 
     this.context = store.get(this.key).context;
     this.shadowRoot.innerHTML = "";
+    this.innerHTML = "";
     this.provide();
 
     this.rerender();
