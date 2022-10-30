@@ -1,12 +1,13 @@
-import { components } from "./components/components.js";
+import { components, pages } from "./components/components.js";
 import setCustomElements from "./utils/setCustomElements/setCustomElements.js";
 import { $ } from "./utils/selector/selector.js";
 const root = $("#root");
 setCustomElements(components);
-const { app, newslist, authors } = components;
+setCustomElements(pages);
+const { app } = components;
+const { newspage } = pages;
 root.innerHTML = `
   <${app.tag}>
-        <${newslist.tag}></${newslist.tag}>
-        <${authors.tag}></${authors.tag}>
+      <${newspage.tag}></${newspage.tag}>
   </${app.tag}>
 `;

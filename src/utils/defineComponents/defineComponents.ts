@@ -1,7 +1,12 @@
 import tagPrefix from "../../config/tagPrefix.js";
-import { ComponentName, Components } from "../../types/components.js";
+import {
+  ComponentName,
+  Components,
+  PageName,
+  Pages,
+} from "../../types/components.js";
 
-const defineComponents = (
+export const defineComponents = (
   allComponents: CustomElementConstructor[],
   components: Components
 ): Components => {
@@ -21,4 +26,21 @@ const defineComponents = (
   return definedComponents;
 };
 
-export default defineComponents;
+export const definePages = (
+  allPages: CustomElementConstructor[],
+  pages: Pages
+): Pages => {
+  const definedPages = pages;
+
+  allPages.forEach((Component: CustomElementConstructor) => {
+    const pageName = Component.name.toLowerCase() as PageName;
+
+    definedPages[pageName] = {
+      ...definedPages[pageName],
+      tag: `${tagPrefix}${pageName}`,
+      Component,
+    };
+  });
+
+  return definedPages;
+};
