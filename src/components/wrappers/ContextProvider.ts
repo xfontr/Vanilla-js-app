@@ -1,6 +1,5 @@
 import Component from "./Component.js";
 import Context from "../../types/Context.js";
-import { $ } from "../../utils/selector/selector.js";
 
 const store = new WeakMap<Context>();
 
@@ -43,10 +42,8 @@ class ContextProvider<T extends Context> extends Component {
     });
   }
 
-  private rerender() {
-    const localStore = store.get(this.key);
-
-    localStore.rerenders.forEach((rerender: any) => rerender());
+  private rerender(): void {
+    store.get(this.key).rerenders.forEach((rerender: Function) => rerender());
   }
 
   protected consumer(): T {

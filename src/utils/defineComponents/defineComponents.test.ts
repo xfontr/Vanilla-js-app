@@ -1,5 +1,5 @@
 import { allComponents, basicComponents } from "../../components/components";
-import defineComponents from "./defineComponents";
+import { defineComponents } from "./defineComponents";
 
 describe("defineComponents function", () => {
   it("should return all the app components", () => {
