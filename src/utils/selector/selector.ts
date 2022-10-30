@@ -1,4 +1,4 @@
-type Container = Element | Document;
+type Container = Element | Document | ShadowRoot;
 
 export const $ = (tag: string, container: Container = document): Element =>
   container.querySelector(tag);

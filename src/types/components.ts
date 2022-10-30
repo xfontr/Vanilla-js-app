@@ -1,12 +1,6 @@
 import Tag from "./Tag";
 
-export type ComponentName =
-  | "app"
-  | "button"
-  | "news"
-  | "newslist"
-  | "newscontextprovider"
-  | "authors";
+export type ComponentName = "app" | "button" | "news" | "newslist" | "authors";
 
 export type Components = Record<
   ComponentName,
